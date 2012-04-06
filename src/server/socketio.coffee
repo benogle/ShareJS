@@ -88,7 +88,7 @@ exports.attach = (server, createClient, options) ->
           meta: opData.meta
 
         send opMsg
-      
+
       # Tell the socket the doc is open at the requested version
       client.listen docName, version, listener, (error, v) ->
         delete docState[docName].listener if error
@@ -292,7 +292,7 @@ exports.attach = (server, createClient, options) ->
         util.debug error.stack
         # ... And disconnect the socket?
         callback()
-    
+
     # And now the actual message handler.
     messageListener = (query) ->
       p "Server recieved message #{i query}"
@@ -332,5 +332,5 @@ exports.attach = (server, createClient, options) ->
         client.removeListener docName if state.listener?
       socket.removeListener 'message', messageListener
       docState = {}
-  
+
   server
