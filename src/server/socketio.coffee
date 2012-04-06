@@ -23,8 +23,8 @@ exports.attach = (server, createClient, options) ->
 
   io.configure ->
     io.set 'log level', 1
-    for option in options
-      io.set option, options[option]
+    for key, option of options
+      io.set key, option
 
   authClient = (handshakeData, callback) ->
     data =
